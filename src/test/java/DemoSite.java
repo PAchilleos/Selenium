@@ -1,13 +1,12 @@
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Wait;
+
+
 
 import static org.junit.Assert.assertEquals;
 
@@ -18,10 +17,16 @@ private Homepage hp;
 private CreateUser cu;
 private Login l;
 private Wait<WebDriver> wait;
+private TestReport TR;
+ScreenShot S = new ScreenShot();
+
+//@BeforeClass
+
 
     @Before
     public void before() {
-
+        TR= new TestReport();
+        TR.setUp();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
 
@@ -34,12 +39,13 @@ private Wait<WebDriver> wait;
     @Test
     public void demsit() {
         FW fl= new FW();
+
         wait = fl.wt(wd,30,5);
 
         wd.navigate().to("http://thedemosite.co.uk/index.php");
 
         fl.xpathcon(wd,"/html/body/div/center/table/tbody/tr[2]/td/div/center/table/tbody/tr/td[2]/p/small/a[3]");
-        hp.clickthis();
+        hp.clickthis(wd);
 
         fl.csscon(wd,"form center table tr:nth-child(1) > td:nth-child(2) input");
         cu.enterusername("Pro4");
@@ -68,11 +74,16 @@ private Wait<WebDriver> wait;
         assertEquals("**Successful Login**",txt);
 
 
+
     }
     @After
+
     public void af(){
+        TR.getReport().flush();
         wd.quit();
     }
+
+    //@AfterClass
 
 
 }
