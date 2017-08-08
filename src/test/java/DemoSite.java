@@ -17,42 +17,31 @@ private WebDriver wd;
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         wd = new ChromeDriver(options);
+
     }
 
 
     @Test
     public void demsit() {
+        PSE P = new PSE();
         wd.navigate().to("http://thedemosite.co.uk/index.php");
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
+        P.t(1);
         wd.findElement(By.xpath("/html/body/div/center/table/tbody/tr[2]/td/div/center/table/tbody/tr/td[2]/p/small/a[3]")).click();
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        wd.findElement(By.cssSelector("form center table tr:nth-child(1) > td:nth-child(2) input")).sendKeys("Pro1");
+        P.t(1);
+        wd.findElement(By.cssSelector("form center table tr:nth-child(1) > td:nth-child(2) input")).sendKeys("Pro2");
+        P.t(1);
         wd.findElement(By.cssSelector("form center table tr:nth-child(2) td:nth-child(2) input[type=\"password\"]")).sendKeys("abcdefg");
+        P.t(1);
         wd.findElement(By.xpath("/html/body/table/tbody/tr/td[1]/form/div/center/table/tbody/tr/td[1]/div/center/table/tbody/tr[3]/td[2]/p/input")).click();
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
+        P.t(1);
         wd.findElement(By.xpath("/html/body/div/center/table/tbody/tr[2]/td/div/center/table/tbody/tr/td[2]/p/small/a[4]")).click();
-        wd.findElement(By.cssSelector("form center table tr:nth-child(1) td:nth-child(2)  input")).sendKeys("Pro1");
+        P.t(1);
+        wd.findElement(By.cssSelector("form center table tr:nth-child(1) td:nth-child(2)  input")).sendKeys("Pro2");
+        P.t(1);
         wd.findElement(By.cssSelector("form center table tr:nth-child(2) td:nth-child(2) input[type=\"password\"]")).sendKeys("abcdefg");
+        P.t(1);
         wd.findElement(By.xpath("/html/body/table/tbody/tr/td[1]/form/div/center/table/tbody/tr/td[1]/table/tbody/tr[3]/td[2]/p/input")).click();
-        try {
-            TimeUnit.SECONDS.sleep(5);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        P.t(2);
 
 
 
