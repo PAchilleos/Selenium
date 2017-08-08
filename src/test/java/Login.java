@@ -16,17 +16,17 @@ public class Login {
 
     public void enterusername(String u){
         usernameInput.sendKeys(u);
-        P.t(1);
+        //P.t(1);
     }
 
     public void enterpassword(String p){
         passwordInput.sendKeys(p);
-        P.t(1);
+        //P.t(1);
     }
 
     public void click1(){
         clicky.click();
-        P.t(2);
+        //P.t(2);
     }
 
 
