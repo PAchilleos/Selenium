@@ -36,14 +36,14 @@ private static ArrayList<List<String>> rows;
 
 
 
-@BeforeClass
+//@BeforeClass
 public static void crd(){
     sheetread = new SpreadSheetReader("C:\\Users\\Administrator\\Desktop\\psswds.xlsx");
     rows = new  ArrayList<List<String>>();
     for(int i =1; i<5;i++){
         List<String> row = sheetread.readRow(i, "Sheet1");
         rows.add(row);
-        System.out.println(rows.get(0).get(2));
+
     }
 }
 
@@ -62,6 +62,9 @@ public static void crd(){
 
     @Parameters
     public static Collection<Object[]> data(){
+    crd();
+
+
         return Arrays.asList(new Object[][] {  //GETTING NULL POINTER EXCEPTION
                 { rows.get(0).get(2), rows.get(0).get(3) },
                 { rows.get(1).get(2), rows.get(1).get(3) },
@@ -86,8 +89,8 @@ public static void crd(){
 
         @Test
         public void demsit () {
-       String usr = rows.get(counter).get(2);
-       String pass = rows.get(counter).get(3);
+       //String usr = rows.get(counter).get(2);
+       //String pass = rows.get(counter).get(3);
 
         FW fl = new FW();
 
