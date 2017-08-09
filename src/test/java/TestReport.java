@@ -10,7 +10,6 @@ public class TestReport {
 
     private ExtentReports report;
     private ExtentTest test;
-    private ExtentTest test2;
     private String reportFilePath = "report.html";
 
     @BeforeClass
@@ -19,21 +18,16 @@ public class TestReport {
     }
 
     @Before
-    public void setUp(){
+    public void setUp(String a){
         report = new ExtentReports();
         ExtentHtmlReporter extentHtmlReporter = new ExtentHtmlReporter(reportFilePath);
         extentHtmlReporter.config().setReportName("ReportName");
         extentHtmlReporter.config().setDocumentTitle("DocumentTitle");
         report.attachReporter(extentHtmlReporter);
-        test = report.createTest("Login Test");
-        test2 = report.createTest("See if Works");
+        test = report.createTest(a);
     }
 
-    @Test
-    public void myTestMethod(){
-        test.log(Status.INFO,"Info level");
-        test.fail("Failed");
-    }
+
 
     public ExtentReports getReport() {
 
@@ -45,10 +39,6 @@ public class TestReport {
         return test;
     }
 
-    public ExtentTest getExtentTest2() {
-
-        return test2;
-    }
 
 
 
