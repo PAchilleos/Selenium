@@ -10,6 +10,7 @@ public class TestReport {
 
     private ExtentReports report;
     private ExtentTest test;
+    private ExtentTest test2;
     private String reportFilePath = "report.html";
 
     @BeforeClass
@@ -24,7 +25,8 @@ public class TestReport {
         extentHtmlReporter.config().setReportName("ReportName");
         extentHtmlReporter.config().setDocumentTitle("DocumentTitle");
         report.attachReporter(extentHtmlReporter);
-        test = report.createTest("TestName");
+        test = report.createTest("Login Test");
+        test2 = report.createTest("See if Works");
     }
 
     @Test
@@ -34,6 +36,20 @@ public class TestReport {
     }
 
     public ExtentReports getReport() {
+
         return report;
     }
+
+    public ExtentTest getExtentTest() {
+
+        return test;
+    }
+
+    public ExtentTest getExtentTest2() {
+
+        return test2;
+    }
+
+
+
 }
